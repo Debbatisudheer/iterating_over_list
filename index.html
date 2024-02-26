@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Contact Management</h1>
+
+    <div id="contactsContainer">
+        <h2>Contacts</h2>
+        <ul id="contactsList"></ul>
+    </div>
+
+    <div id="addContactForm">
+        <h2>Add Contact</h2>
+        <input type="text" id="searchInput" oninput="searchContacts()" placeholder="Search contacts...">
+        <input type="text" id="contactName" placeholder="Enter name">
+        <input type="text" id="contactNumber" placeholder="Enter phone number">
+        <button onclick="addContact()">Add Contact</button>
+
+    </div>
+      <p class="info">
+        <strong>Functionality:</strong>
+        <ul>
+            <li>Adding, removing, searching, and displaying contacts</li>
+        </ul>
+        <strong>Role of Contacts List:</strong>
+        <ul>
+            <li>Serves as a container for storing contact information (names and numbers)</li>
+            <li>Enables operations such as adding, removing, searching, and displaying contacts</li>
+        </ul>
+    </p>
+    <div id="functionalityInfo">
+    <h2>Functionality Overview</h2>
+    <ul>
+        <li><strong>Initialization:</strong> At the beginning of the script, an empty list `contacts` is initialized to store contact information.</li>
+        <li><strong>Adding Contacts:</strong> When a new contact is added, a dictionary containing the name and number is created, and this dictionary is appended to the `contacts` list using the `append()` method.</li>
+        <li><strong>Removing Contacts:</strong> To remove a contact, its index is used to delete the corresponding dictionary from the `contacts` list using the `del` statement.</li>
+        <li><strong>Searching Contacts:</strong> The `search_contacts` function iterates over the `contacts` list to find contacts that match the search input. It returns a list of matching contacts based on the search criteria.</li>
+        <li><strong>Displaying Contacts:</strong> The `display_contacts` function takes a list of contacts as input and iterates over each contact in the list. It uses the `enumerate` function to get both the index and the contact details from the list. The contact details are then displayed appropriately.</li>
+    </ul>
+</div>
+     <h1>Time and Space Complexity of List Iteration</h1>
+    <ul>
+        <li>
+            <strong>Time Complexity:</strong>
+            <p>The time complexity of iterating over a list using a loop like a for loop is O(n), where n is the number of elements in the list. This is because the loop needs to visit each element in the list once, resulting in linear time complexity.</p>
+        </li>
+        <li>
+            <strong>Space Complexity:</strong>
+            <p>The space complexity of iterating over a list is O(1), which means it requires constant space regardless of the size of the list. This is because the loop only needs a constant amount of memory to store loop control variables like the loop index, which doesn't change with the size of the list.</p>
+        </li>
+    </ul>
+     <h1>Time and Space Complexities of Common List Operations</h1>
+    <ul>
+        <li>
+            <strong>Accessing an Element by Index:</strong>
+            <ul>
+                <li>Time Complexity: O(1)</li>
+                <li>Space Complexity: O(1)</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Appending an Element to the End:</strong>
+            <ul>
+                <li>Time Complexity: O(1) [amortized]</li>
+                <li>Space Complexity: O(1)</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Inserting an Element at a Specific Index:</strong>
+            <ul>
+                <li>Time Complexity: O(n)</li>
+                <li>Space Complexity: O(1)</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Removing an Element by Index:</strong>
+            <ul>
+                <li>Time Complexity: O(n)</li>
+                <li>Space Complexity: O(1)</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Searching for an Element:</strong>
+            <ul>
+                <li>Time Complexity: O(n)</li>
+                <li>Space Complexity: O(1)</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Iterating Over All Elements:</strong>
+            <ul>
+                <li>Time Complexity: O(n)</li>
+                <li>Space Complexity: O(1)</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Sorting the List:</strong>
+            <ul>
+                <li>Time Complexity: O(n log n)</li>
+                <li>Space Complexity: O(log n) [for an in-place sort like quicksort]</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Reversing the List:</strong>
+            <ul>
+                <li>Time Complexity: O(n)</li>
+                <li>Space Complexity: O(1)</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Slicing:</strong>
+            <ul>
+                <li>Time Complexity: O(k)</li>
+                <li>Space Complexity: O(k), where k is the length of the slice</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Concatenating Two Lists:</strong>
+            <ul>
+                <li>Time Complexity: O(m + n)</li>
+                <li>Space Complexity: O(m + n)</li>
+            </ul>
+        </li>
+    </ul>
+    <p>These complexities are based on typical implementations in languages like Python. Actual performance may vary depending on the specific language, compiler optimizations, and hardware characteristics.</p>
+
+     <h1>Optimizing Time Complexity of List Operations</h1>
+    <ul>
+        <li>Use Efficient Data Structures:
+            <p>Depending on your specific use case, you may choose alternative data structures that provide better time complexity for certain operations. For example, if you frequently need to search for elements, consider using a hash table (e.g., Python's dict or set) which offers constant-time average case lookup.</p>
+        </li>
+        <li>Use Binary Search:
+            <p>If your list is sorted, you can utilize binary search to find elements more efficiently, reducing the time complexity from linear to logarithmic.</p>
+        </li>
+        <li>Avoid Nested Loops:
+            <p>Try to minimize nested loops in your algorithms, as they can significantly increase the time complexity. Instead, consider using techniques like memoization or dynamic programming to optimize repetitive computations.</p>
+        </li>
+        <li>Precompute Results:
+            <p>If you frequently need to compute the same result, precompute it once and store it for future use. This can reduce the time complexity of subsequent operations.</p>
+        </li>
+        <li>Parallelize Operations:
+            <p>In some cases, you can parallelize operations to take advantage of multi-core processors and reduce overall execution time.</p>
+        </li>
+        <li>Implement Efficient Algorithms:
+            <p>Choose algorithms with better time complexity for specific tasks. For example, use quicksort or mergesort for sorting instead of insertion sort for large datasets.</p>
+        </li>
+        <li>Limit Unnecessary Operations:
+            <p>Minimize unnecessary operations by optimizing your algorithm's logic and reducing redundant computations.</p>
+        </li>
+        <li>Profile and Benchmark:
+            <p>Profile your code to identify performance bottlenecks and areas for optimization. Benchmark different approaches to determine which one offers the best performance.</p>
+        </li>
+    </ul>
+    <p>By applying these strategies judiciously, you can optimize the time complexity of list operations and improve the overall performance of your code.</p>
+
+    <script src="script.js"></script>
+</body>
+</html>
